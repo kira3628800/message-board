@@ -37,43 +37,34 @@ function start(response, postData) {
             '<head>'+
                 '<meta charset="utf-8"/>  <!-- html encode type-->'+
                 '<title>留言板</title>'+
+                '<style type="text/css">'+
+        '*{margin:0; padding:0;}'+
+        'body,input{font-size:14px; line-height:24px; color:#333; font-family:Microsoft yahei, Song, Arial, Helvetica, Tahoma, Geneva;}'+
+        'h1{margin-bottom:15px; height:100px; line-height:100px; text-align:center; font-size:24px; color:#fff; background:#0051a1;}'+
+        '#content #post,#comment p{zoom:1;}'+
+        '#content #post:after,#comment p:after{display:block; height:0; clear:both; visibility:hidden; overflow:hidden; content:".";}'+
+        '.transition{-webkit-transition:all 0.5s linear; -moz-transition:all 0.5s linear; -o-transition:all 0.5s linear; -ms-transition:all 0.5s linear; transition:all 0.5s linear;}'+
+        '#content{margin:0 auto; width:960px; overflow:hidden;}'+
+            '#content #post{margin-bottom:15px; padding-bottom:15px; border-bottom:1px #d4d4d4 dashed;}'+
+                '#content #post textarea{display:block; margin-bottom:10px; padding:5px; width:948px; height:390px; border:1px #d1d1d1 solid; border-radius:5px; resize:none; outline:none;}'+
+                '#content #post textarea:hover{border:1px #9bdf70 solid; background:#f0fbeb;}'+
+                '#content #post #postBt,#content #post #clearBt{margin-left:5px; padding:3px; float:right;}'+
+        '#comment{overflow:hidden;}'+
+            '#comment p{margin-bottom:10px; padding:10px; border-radius:5px;}'+
+            '#comment p:nth-child(odd){border:1px solid #e3e197; background:#ffd;}'+
+            '#comment p:nth-child(even){border:1px solid #adcd3c; background:#f2fddb;}'+
+                '#comment p span{display:inline; float:left;}'+
+                '#comment p .msg{width:738px;}'+
+                '#comment p .datetime{width:200px; color:#999; text-align:right;}'+
+        '</style>'+
             '</head>'+
-			'<style>'+
-             ' body{'+
-	          'background-image:url(https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/12108808_1018838994803353_2534533317720857000_n.jpg?oh=46b35caf18e5a545aadccb060e652f98&oe=58FC3D2C);'+
-	          'background-repeat:no-repeat;'+
-	          'background-attachment:fixed;'+
-	          'background-position:center;'+
-	          'background-size:cover;'+
-			  'background-color:#000000;'+
-			  
-	          '}'+
-	          'h1{'+
-	          'position:absolute;'+
-	          'bottom:10px;'+
-	          'right:50px;'+
-	          '}'+
-			  'div{'+
-			   'text-align:center;'+
-			   
-			   'font-size:25px;'+
-			   'font-weight:bold;'+
-			  '}'+
-				
-	         'p{'+
-	          'text-align:center'+
-	          '}'+
-   
-              '</style>'+
             '<body>'+
             //username.replace(/(?:\r\n|\r|\n)/g, '<br />')+
-           
+            msg.replace(/(?:\r\n|\r|\n)/g, '<br />') +
                 '<form action="/upload" method="post">'+
-                '<p><font size="7" color="blue">ID</font><input type="text" style="font-size:25px" name="username"></p>'+
-                '<p><font size="7" color="blue">留言</font><br><textarea name="msg" rows=20 cols=80></textarea></p>'+
-                '<p><input type="submit" value="留言"></p>'+ 
-				'<h1>圖片版權由九藏喵窩所有</h1>'+
-				'<div>'+msg.replace(/(?:\r\n|\r|\n)/g, '<hr />') +'</div>'+
+                '<p>ID<input type="text" name="username"></p>'+
+                '<p>message<textarea name="msg"></textarea></p>'+
+                '<p><input type="submit" value="留言"></p>'+
                 '</form>'+
               '</body>'+
            '</html>';
